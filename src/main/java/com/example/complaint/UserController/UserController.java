@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class UserController {
@@ -50,6 +51,16 @@ public class UserController {
    List<UserModel> ViewProfile(@RequestBody UserModel userModel){
         return (List<UserModel>) userDao.ViewProfile(String.valueOf(userModel.getId()));
   }
+    @CrossOrigin(origins = "*")
+    @GetMapping("/viewAllComplaints")
+    List<Map<String, String>> ViewAllComplaints(){
+
+
+        return (List<Map<String, String>>) userDao.ViewAllComplaints();
+
+
+
+    }
 
 
 
