@@ -23,5 +23,11 @@ public class ComplaintController {
     return map ;
     }
 
+    @CrossOrigin(origins = "*")
+    @PostMapping(path = "/viewComplaint",consumes = "application/json",produces = "application/json")
+    List<ComplaintModel> ViewComplaint(@RequestBody ComplaintModel complaintModel){
+        return (List<ComplaintModel>) complaintdao.ViewComplaint(String.valueOf(complaintModel.getUserId()));
+    }
+
 
 }
