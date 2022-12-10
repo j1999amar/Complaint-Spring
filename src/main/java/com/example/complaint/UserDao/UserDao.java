@@ -13,4 +13,7 @@ public interface UserDao extends CrudRepository<UserModel,String> {
     @Query(value = "SELECT * FROM `users` WHERE `user_login`= :user AND `password`= :pass ",nativeQuery = true)
     List<UserModel> UserLogin(@Param("user")String user, @Param("pass") String pass);
 
+    @Query(value ="SELECT * FROM `users` WHERE `id`= :id",nativeQuery = true)
+   List<UserModel> ViewProfile(@Param("id") String id);
+
 }
